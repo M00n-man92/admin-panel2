@@ -1,0 +1,53 @@
+.topbar{
+    height: 70px;
+    width: 100%;
+   
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: sticky;
+    top: 0;
+    
+    .gio{
+        width: 100%;
+        display: flex;
+
+        .left{
+            flex: 1;
+            
+            
+        }
+        .center{
+            flex: 1;
+            
+        }
+
+        .right{
+           display: flex;
+           margin-right: 10px;
+           align-items: center;
+           justify-content: center; 
+           flex: 1;
+           
+        
+            justify-content: end;
+
+            .badge{
+margin-right: 20px;
+color: #555;
+            }
+           .imagetran{
+               width: 50px;
+               height: 50px;
+               border-radius: 100%;
+               object-fit: cover;
+                .colo{
+height: 100%;
+width: 100%;
+border-radius: 50%;
+
+                }
+           }
+        }
+    }
+}

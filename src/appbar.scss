@@ -1,0 +1,24 @@
+.appbar {
+    display: flex;
+    flex-direction: column;
+    .top{
+        height: 70px;
+        
+    }
+    .bigo {
+        display: flex;
+        .todaside {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+           
+            
+        }
+        .middlestuff {
+            display: flex;
+            height: calc(100vh - 70px);
+         
+            flex: 4;
+        }
+    }
+}

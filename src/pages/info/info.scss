@@ -1,0 +1,49 @@
+.info {
+    display: flex;
+    margin: 20px;
+    justify-content: space-between;
+    
+    .infowrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin-left: 20px;
+        height: 200px;
+        width: 300px;
+        cursor: pointer;
+        border-radius: 20px;
+        -webkit-box-shadow: 0px 10px 13px -7px #000000, 5px 16px 10px 11px rgba(118, 136, 255, 0.17);
+        box-shadow: 0px 10px 13px -7px #000000, 5px 16px 10px 11px rgba(118, 136, 255, 0.17);
+        margin-right: 10px;
+        .infotitle {
+            span {
+                font-size: 20px;
+                font-weight: 400px;
+            }
+        }
+        .infocontainer {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            .infomoneyone {
+                font-size: 40px;
+                font-weight: 500;
+            }
+            .infomoneytwo {
+                margin-left: 20px;
+                .upwardz {
+                    color: green;
+                }
+                .downwardz {
+                    color: red;
+                }
+            }
+        }
+        .infowentdown {
+            span {
+                color: #555;
+            }
+        }
+    }
+}

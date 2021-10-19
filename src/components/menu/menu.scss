@@ -1,0 +1,40 @@
+.menu{
+    .menucontainer{
+        display: flex;
+        flex-direction: column;
+        margin-left: 20px;
+        padding: 10px;
+        
+        .allout{
+            margin-bottom: 10px;
+            color: #555;
+            .title{
+              span{
+                    font-size: 16px;
+                    font-weight: 400px;
+              }  
+            }
+            .objects{
+                .obtitle{
+                    list-style: none;
+                   
+                    .listitems.active,
+                    .listitems:hover{
+                        background-color: rgb(158, 158, 170);
+                    }
+                   .listitems{
+                    
+                    border-radius: 10px;
+                    height: 30px;
+                       display: flex;
+                       align-items: center;
+                       margin-top: 10px;
+                       cursor: pointer;
+                       font-size: 20px !important;
+                      
+                    }
+                }
+            }
+        }
+    }
+}
