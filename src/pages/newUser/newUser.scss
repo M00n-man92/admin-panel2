@@ -10,18 +10,32 @@
         }
     }
     .formofdata{
-        
-        .filllingitems{
-            display: flex;
+        display: flex;
         flex-wrap: wrap;
 
-            label{
+        .filllingitems{
+           margin-left: 20px;
+           margin-top: 20px;
+           display: flex;
+           width: 450px;
+           flex-direction:column ; 
+           label{
                 font-size: 14px;
                 color: #555;
+                
+                margin-bottom: 10px;
             }
             input{
-                width: 500px;
+                
                 border: 1px solid #555;
+                height: 30px;
+                border-radius: 5px;
+
+            }
+            .genderfiller{
+                input{
+                    width: 20px;
+                }
             }
         }
     }

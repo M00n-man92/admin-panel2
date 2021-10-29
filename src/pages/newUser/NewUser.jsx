@@ -9,27 +9,27 @@ export default function NewUser() {
           <form className="formofdata">
               <div className="filllingitems">
                   <label htmlFor="">Username</label>
-                  <input type="text" />
+                  <input type="text" placeholder="Mac Miller"/>
               </div>
               <div className="filllingitems">
-                  <label htmlFor="">Username</label>
-                  <input type="text" />
+                  <label htmlFor="">Full Name</label>
+                  <input type="text" placeholder="Mac Miller"/>
               </div>
               <div className="filllingitems">
-                  <label htmlFor="">Username</label>
-                  <input type="text" />
+                  <label htmlFor="">Email</label>
+                  <input type="email" placeholder="Mac Miller@gmial.com"/>
               </div>
               <div className="filllingitems">
-                  <label htmlFor="">Username</label>
-                  <input type="text" />
+                  <label htmlFor="">Password</label>
+                  <input type="password" />
               </div>
               <div className="filllingitems">
-                  <label htmlFor="">Username</label>
-                  <input type="text" />
+                  <label htmlFor="">Phone</label>
+                  <input type="text" placeholder="0934634563"/>
               </div>
               <div className="filllingitems">
-                  <label htmlFor="">Username</label>
-                  <input type="text" />
+                  <label htmlFor="">Adress</label>
+                  <input type="text" placeholder="Addis Ababa"/>
               </div>
               <div className="filllingitems">
                   <label htmlFor="">Gender</label>
