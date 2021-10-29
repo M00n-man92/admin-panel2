@@ -1,6 +1,6 @@
 import { LineStyle, TrendingUp, Timeline, MailOutline, DynamicFeed, ChatBubbleOutline, WorkOutline, Report, PermIdentityOutlined, StorefrontOutlined, AttachMoney } from '@mui/icons-material'
 import './menu.scss'
-
+import { Link } from 'react-router-dom'
 export default function Menu() {
     return (
         <div className="menu">
@@ -13,16 +13,18 @@ export default function Menu() {
                         <ul className="obtitle">
                             <li className="listitems">
                                 <LineStyle />
+                               <Link to="/">
                                 <span>Home</span>
+                                </Link>
 
                             </li>
                             <li className="listitems">
                                 <TrendingUp />
-                                <span>Home</span>
+                                <span>Trending</span>
                             </li>
                             <li className="listitems">
                                 <Timeline />
-                                <span>Home</span>
+                                <span>Sales</span>
                             </li>
                         </ul>
                     </div>
@@ -36,7 +38,8 @@ export default function Menu() {
                         <ul className="obtitle">
                             <li className="listitems">
                                 <PermIdentityOutlined />
-                                <span> User</span>
+                                <Link to ="/user"><span> User</span></Link>
+                                
 
                             </li>
                             <li className="listitems">

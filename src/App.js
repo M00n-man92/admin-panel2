@@ -6,6 +6,8 @@ import Menu from './components/menu/Menu';
 import Home from './pages/home/Home';
 import { Route, Switch, BrowserRouter as Router } from 'react-router-dom'
 import User from './pages/user/User';
+import SingleUser from './pages/singleuser/SingleUser';
+import NewUser from './pages/newUser/NewUser';
 
 function App() {
   return (
@@ -27,8 +29,14 @@ function App() {
               <Route exact path="/">
               <Home />
 </Route>
-               <Route path="/user">
+               <Route exact path="/user">
             <User/>
+          </Route>
+          <Route exact path="/user/:id">
+            <SingleUser/>
+          </Route>
+          <Route path="/newuser">
+            <NewUser/>
           </Route>
           </Switch>
             </div>

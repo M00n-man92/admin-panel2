@@ -1,3 +1,37 @@
-.user{
-    
+.user {
+    flex: 4;
+    .gridd {
+        height: 100%;
+        width: 100%;
+        .cellimage {
+            display: flex;
+            align-items: center;
+            img {
+                margin-left: 10px;
+                height: 50px;
+                width: 50px;
+
+                border-radius: 50%;
+            }
+        }
+        .holeup {
+            display: flex;
+            align-items: center;
+            button {
+                background-color: rgb(60, 207, 60);
+                
+                border:1px solid grey;
+                height: 30px;
+                width: 40px;
+                border-radius: 5px;
+                cursor: pointer;
+               
+            }
+            .thisbitch{
+                cursor: pointer;
+                color: red;
+                margin-left: 20px;
+            }
+        }
+    }
 }
