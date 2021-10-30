@@ -54,11 +54,10 @@
                    
                     .inmagecontainnre{
                         margin-right: 10px;
-                        height: 50px;
-                        width: 50px;
-                        border: 1px solid #555;
+                        
+                       
                            object-fit: cover;
-                           .img{
+                           img{
                                height: 50px;
                                width: 50px;
                                border-radius: 50%;
@@ -152,15 +151,18 @@
                 .holeoln{
                     display: flex;
                     align-items: center;
+
                     .areacontain{
-                        height: 50px;
-                        width: 50px;
-                        border: 1px solid #555;
+                        object-fit: cover;
                         margin-left: 10px;
                         input{
                             cursor: pointer;
                         }
-                        img{}
+                        img{
+                            height: 100px;
+                        width: 100px;
+                       
+                        }
                     }
                 }
                 .holonbutton{
