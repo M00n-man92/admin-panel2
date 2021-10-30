@@ -13,7 +13,7 @@ export default function Menu() {
                         <ul className="obtitle">
                             <li className="listitems">
                                 <LineStyle />
-                               <Link to="/">
+                               <Link className="link" to="/">
                                 <span>Home</span>
                                 </Link>
 
@@ -38,13 +38,14 @@ export default function Menu() {
                         <ul className="obtitle">
                             <li className="listitems">
                                 <PermIdentityOutlined />
-                                <Link to ="/user"><span> User</span></Link>
+                                <Link className="link" to ="/user"><span> User</span></Link>
                                 
 
                             </li>
                             <li className="listitems">
                                 <StorefrontOutlined />
-                                <span>Products</span>
+                                <Link to="/productlist" className="link"><span>Products</span></Link>
+                                
                             </li>
                             <li className="listitems">
                                 <AttachMoney />

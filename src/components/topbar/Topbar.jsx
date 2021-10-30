@@ -6,7 +6,10 @@ export default function Topbar() {
         <div className="topbar">
             <div className="gio">
                 <div className="left">
-
+           <div className="letonewithyou"><span>
+                Admin Panel
+            </span></div>
+            
                 </div>
                 <div className="center"></div>
                 <div className="right">

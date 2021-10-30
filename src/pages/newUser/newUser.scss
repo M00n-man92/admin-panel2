@@ -12,6 +12,7 @@
     .formofdata{
         display: flex;
         flex-wrap: wrap;
+       
 
         .filllingitems{
            margin-left: 20px;
@@ -37,6 +38,22 @@
                     width: 20px;
                 }
             }
+            select{
+                border: 1px solid #555;
+                height: 30px;
+                border-radius: 5px;
+            }
+        }
+        button{
+            position: absolute;
+            height: 40px;
+            width: 70px;
+            background-color: teal;
+            color: white;
+            border: none;
+            top: 500px;
+            left: 700px;
+            cursor: pointer;
         }
     }
 }

@@ -25,15 +25,15 @@ export default function Info() {
             <div className="infowrapper">
                 <div className="infotitle">
                     <span>
-                        Revenue
+                        Cost
                     </span>
                 </div>
                 <div className="infocontainer">
                     <span className="infomoneyone">
-                        $ 123
+                        $ 1003
                     </span>
                     <span className="infomoneytwo">
-                        +67 <ArrowUpwardSharp className="upwardz"/>
+                        +7 <ArrowUpwardSharp className="upwardz"/>
                     </span>
                 </div>
                 <div className="infowentdown">
@@ -43,12 +43,12 @@ export default function Info() {
             <div className="infowrapper">
                 <div className="infotitle">
                     <span>
-                        Revenue
+                        Sales
                     </span>
                 </div>
                 <div className="infocontainer">
                     <span className="infomoneyone">
-                        $ 123
+                        $ 378
                     </span>
                     <span className="infomoneytwo">
                         +67 <ArrowDownwardSharp className="downwardz"/>

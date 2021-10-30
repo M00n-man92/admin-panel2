@@ -1,0 +1,56 @@
+.newproduct{
+    display: flex;
+    flex-direction: column;
+    .newproducttitle{
+        margin-top: 20px;
+        margin-left: 20px;
+        span{
+            font-size: 30px;
+            font-weight: 300;
+        }
+    }
+    .projectotrrr{
+        display: flex;
+        flex-direction: column;
+        margin-top: 20px;
+        margin-left: 40px;
+        .productitemplus{
+            display: flex;
+            flex-direction: column;
+            margin-top: 10px;
+            .laketitle{
+                margin-bottom: 10px;
+
+                span{
+                    font-size: 14px;
+                    color: #555;
+
+                }
+
+            }
+            .ollio{
+                input{
+                    border: none;
+                    border-bottom: 1px solid #555;
+                    height: 30px;
+
+                }
+                select{
+                    height: 30px;
+                    width: 150px;
+                }
+            }
+        }
+    }
+    .jidbutton{
+        margin-top: 10px;
+        button{
+            background-color: teal;
+            color: white;
+            height: 30px;
+            width: 70px;
+            border: none;
+            cursor: pointer;
+        }
+    }
+}
