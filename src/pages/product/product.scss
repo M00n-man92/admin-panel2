@@ -60,7 +60,9 @@
 
                         .imgjkille {
                             margin-left: 20px;
+                            
                            img{
+                            object-fit: contain;
                                height: 70px;
                                width: 100px;
                            }
@@ -109,6 +111,12 @@
                     font-size: 30px;
                     font-weight: 300;
                 }
+                .mslaurenhill{
+                    color: rgb(73, 211, 73);
+                    margin-left: 200px;
+                    font-weight: 400;
+
+                }
 
             }
             .golgog{
@@ -127,8 +135,9 @@
                         .rolioingstonescontain{
                            
                            
-                            object-fit: cover;
+                            
                             img{
+                                object-fit: contain;
                                 height: 70px;
                                 width: 100px;
                             }
@@ -151,10 +160,16 @@
                 }
                 .tartartarea{
                     margin-left: 20px;
+                    display: flex;
+                    flex-direction: column;
+                    flex-wrap: wrap;
+                    height: 250px;
                     .polandarea{
                         display: flex;
                         flex-direction: column;
                         margin-bottom: 10px;
+                        width: 200px;
+                        margin-left: 20px;
                         label{
                             font-size: 18px;
                             color: #555;

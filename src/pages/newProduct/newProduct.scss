@@ -8,13 +8,39 @@
             font-size: 30px;
             font-weight: 300;
         }
+        .beatsbydre{
+            margin-left: 100px;
+            color: rgb(49, 218, 49);
+            font-size: 40px;
+            font-weight: 400;
+        }
+    }
+    .thenigaalookedjustlikeme{
+        .iknowmydestunatuin{
+            display: flex;
+        }
+        .iplayedmyfair{
+            margin-top: 20px;
+            display: flex;
+            flex-direction: column;
+            span{
+                font-size: 12px;
+                font-weight: 400;
+            }
+        }
+        
+
+
     }
     .projectotrrr{
         display: flex;
         flex-direction: column;
+        flex-wrap: wrap;
+        height: 300px;
         margin-top: 20px;
         margin-left: 40px;
         .productitemplus{
+            width: 500px;
             display: flex;
             flex-direction: column;
             margin-top: 10px;
@@ -43,6 +69,9 @@
         }
     }
     .jidbutton{
+        position: absolute;
+        top: 550px;
+        left: 600px;
         margin-top: 10px;
         button{
             background-color: teal;

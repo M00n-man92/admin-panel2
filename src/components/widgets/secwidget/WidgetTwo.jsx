@@ -1,6 +1,17 @@
+import { useEffect, useState } from 'react'
+import { userRequest } from '../../../requestMethods'
 import './widgettwo.scss'
+import {format} from "timeago.js"
 
 export default function WidgetTwo() {
+    const [orders, setOrders] = useState([])
+    useEffect(() => {
+        const something = async () => {
+            const res = await userRequest.get("order/find")
+            setOrders(res.data.data)
+        }
+        something()
+    }, [])
     return (
         <div className="two">
             <div className="twotitle">
@@ -20,93 +31,33 @@ export default function WidgetTwo() {
                             Amount
                         </th>
                         <th className="theyuphere">
-                           Status
+                            Status
                         </th>
                     </tr>
-                    <tr className="row">
+                    {orders.map((items) => (<tr className="row">
                         <td className="theyuphere">
                             <div className="userstuff">
                                 <div className="guessitsgood">
                                     <img src="assets/Ariana Grande Pays Tribute to Mac Miller_ 'I'm So Sorry I Couldn't Fix or Take Your Pain Away'.jpg" alt="" />
                                 </div>
                                 <div className="userinfomation">
-                                    <span>user Name</span>
+                                    <span>{items.userId}</span>
                                     
                                 </div>
                             </div>
                         </td>
                         <td className="theyuphere">
-                            1jan1999
+                            {format(items.createdAt)}
                         </td>
                         <td className="theyuphere">
-                            $5655
+                            {items.amount}
                         </td>
                         <td className="theyuphere">
-                           <button className={"buttonstatus " + "approved"}>Approved</button>
+                            <button className={"buttonstatus "}>{items.status}</button>
                         </td>
-                    </tr>
-                    <tr className="row">
-                    <td className="theyuphere">
-                            <div className="userstuff">
-                                <div className="guessitsgood">
-                                    <img src="assets/Ariana Grande Pays Tribute to Mac Miller_ 'I'm So Sorry I Couldn't Fix or Take Your Pain Away'.jpg" alt="" />
-                                </div>
-                                <div className="userinfomation">
-                                    <span>user Name</span>
-                                    
-                                </div>
-                            </div>
-                        </td>
-                        <td className="theyuphere">
-                            1jan1999
-                        </td>
-                        <td className="theyuphere">
-                            $3453
-                        </td>
-                        <td><button className={"buttonstatus " + "pending"}>Pending</button></td>
-                    </tr>
-                    <tr className="row">
-                    <td className="theyuphere">
-                            <div className="userstuff">
-                                <div className="guessitsgood">
-                                    <img src="assets/Ariana Grande Pays Tribute to Mac Miller_ 'I'm So Sorry I Couldn't Fix or Take Your Pain Away'.jpg" alt="" />
-                                </div>
-                                <div className="userinfomation">
-                                    <span>user Name</span>
-                                    
-                                </div>
-                            </div>
-                        </td>
-                        <td className="theyuphere">
-                            1jan1999
-                        </td>
-                        <td className="theyuphere">
-                            $35345
-                        </td>
-                        <td> <button className={"buttonstatus " + "declined"}>Declined</button></td>
-                       
-                    </tr>
-                    <tr className="row">
-                    <td className="theyuphere">
-                            <div className="userstuff">
-                                <div className="guessitsgood">
-                                    <img src="assets/Ariana Grande Pays Tribute to Mac Miller_ 'I'm So Sorry I Couldn't Fix or Take Your Pain Away'.jpg" alt="" />
-                                </div>
-                                <div className="userinfomation">
-                                    <span>user Name</span>
-                                    
-                                </div>
-                            </div>
-                        </td>
-                        <td className="theyuphere">
-                            1jan1999
-                        </td>
-                        <td className="theyuphere">
-                            $35345
-                        </td>
-                        <td> <button className={"buttonstatus " + "declined"}>Declined</button></td>
-                       
-                    </tr>
+                    </tr>))}
+
+                   
                 </table>
             </div>
         </div>

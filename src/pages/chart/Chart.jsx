@@ -1,95 +1,46 @@
 import './chart.scss'
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 import { CartesianAxis } from 'recharts/lib/cartesian/CartesianAxis';
+import { useEffect, useMemo, useState } from 'react';
+import { userRequest } from '../../requestMethods';
 
 export default function Chart() {
+  const [userStat, setUserStat] = useState([])
+  const MOnths = useMemo(() => [
+    'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec',
+  ], [])
+  useEffect(() => {
+    const holedown = async () => {
+      try {
+        const res = await userRequest.get("user/status")
+        res.data.map((item) =>
+          setUserStat(prev => [
+            { name: MOnths[item._id - 1], "Active User": item.total }
+          ])
+        )
 
-    const data = [
-      {
-        name: 'Jan',
-       "Active User": 4000,
-        
-        
-      },
-      {
-        name: 'Feb',
-       "Active User": 3000,
-        
-        
-      },
-    
-      {
-        name: 'Mar',
-       "Active User": 2780,
-        
-        
-      },
-      {
-        name: 'Apr',
-       "Active User": 1890,
-        
-        
-      },
-      {
-        name: 'May',
-       "Active User": 2390,
-        
-        
-      },
-      {
-        name: 'Jun',
-       "Active User": 3490,
-        
-        
-      },
-      {
-        name: 'Jul',
-       "Active User": 3490,
-        
-        
-      },
-      {
-        name: 'Aug',
-       "Active User": 3490,
-        
-        
-      },
-      {
-        name: 'Sep',
-       "Active User": 3490,
-        
-        
-      },
-      {
-        name: 'Oct',
-       "Active User": 3490,
-        
-        
-      },
-      {
-        name: 'Nov',
-       "Active User": 3490,
-        
-        
-      },
-      {
-        name: 'Dec',
-       "Active User": 3490,
-        
-        
-      },
-    ];
-    
-    return (
-        <div className="chart">
-            <div className="charttitle">
-                <span>User Analytics</span>
-            </div>
-           <ResponsiveContainer width="100%" aspect={4 / 1}>
-           <LineChart
+      }
+      catch (e) {
+        console.log(e)
+      }
+
+    }
+    holedown()
+  }, [
+    MOnths
+  ])
+
+
+  return (
+    <div className="chart">
+      <div className="charttitle">
+        <span>User Analytics</span>
+      </div>
+      <ResponsiveContainer width="100%" aspect={4 / 1}>
+        <LineChart
           width={500}
           height={300}
-          data={data}
+          data={userStat}
           margin={{
             top: 5,
             right: 30,
@@ -100,12 +51,12 @@ export default function Chart() {
           <CartesianGrid strokeDasharray="3 3" />
           <XAxis dataKey="name" />
           <YAxis />
-          <Tooltip/>
-          <CartesianGrid stroke="#34"/>
+          <Tooltip />
+          <CartesianGrid stroke="#34" />
           <Line type="monotone" dataKey="Active User" stroke="#8884d8" activeDot={{ r: 8 }} />
-          
+
         </LineChart>
-           </ResponsiveContainer>
-        </div>
-    )
+      </ResponsiveContainer>
+    </div>
+  )
 }

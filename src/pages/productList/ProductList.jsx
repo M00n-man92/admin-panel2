@@ -3,31 +3,49 @@ import { DataGrid } from '@mui/x-data-grid';
 import { width } from '@mui/system';
 import { DeleteOutline } from '@mui/icons-material';
 import {Link } from 'react-router-dom'
-import { useState } from 'react';
-export default function ProductList() {
-    const rows = [
-        { id: 1, ProductName: 'Snow',img:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRkwbWRWBH9nh4wJdlJND0_n36oGoInrUsdfw&usqp=CAU",stock:"34",price:"$3455", status:"active"},
-        { id: 2, ProductName: 'Lannister', img:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRkwbWRWBH9nh4wJdlJND0_n36oGoInrUsdfw&usqp=CAU",stock:"34",price:"$3455", status:"active"},
-        ,
-        { id: 3, ProductName: 'Lannister', img:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRkwbWRWBH9nh4wJdlJND0_n36oGoInrUsdfw&usqp=CAU",stock:"34",price:"$3455", status:"active"},
-        ,
-        { id: 4, ProductName: 'Stark', img:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRkwbWRWBH9nh4wJdlJND0_n36oGoInrUsdfw&usqp=CAU",stock:"34",price:"$3455", status:"active"},
-        
-        { id: 5 ,ProductName: 'Targaryen', img:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRkwbWRWBH9nh4wJdlJND0_n36oGoInrUsdfw&usqp=CAU",stock:"34",price:"$3455" , status:"active"},
-        { id: 6, ProductName: 'Melisandre',img:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRkwbWRWBH9nh4wJdlJND0_n36oGoInrUsdfw&usqp=CAU",stock:"34",price:"$3455", status:"active"},
-        { id: 7, ProductName: 'Clifford', img:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRkwbWRWBH9nh4wJdlJND0_n36oGoInrUsdfw&usqp=CAU",stock:"34",price:"$3455", status:"active"},
-        ,
-        { id: 8, ProductName: 'Frances', img:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRkwbWRWBH9nh4wJdlJND0_n36oGoInrUsdfw&usqp=CAU",stock:"34",price:"$3455", status:"active"},
-        ,
-        { id: 9, ProductName: 'Roxie', img:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRkwbWRWBH9nh4wJdlJND0_n36oGoInrUsdfw&usqp=CAU",stock:"34",price:"$3455", status:"active"},
-        ,
-      ];
-      const [data,setData]=useState(rows)
+import { useEffect, useState } from 'react';
+import { useLocation } from 'react-router-dom'
+import { methodMan, protectYaNeck } from '../../redux/apiCall';
+import { useDispatch } from 'react-redux';
+import { userRequest } from '../../requestMethods';
+export default function ProductList(){
+  const [produce,setProduce]=useState([])
+ const dispatch=useDispatch()
+ const location=useLocation()
+  const page=location.pathname.split('/')[1]
+  
+  // useEffect(async()=>{
+  //   const responce=await userRequest.get('/product/find')
+  //   people=responce.data.data
+  //   console.log(people)
+  // },[page])
+  useEffect(()=>{
+    const youDont=async ()=>{
+      try{
+        protectYaNeck(dispatch)
+      
+      }
+      catch(e){
+
+      }
+
+    }
+    youDont()
+  },[page])
+  const oldpeople =  localStorage.getItem("persist:root")
+    
+  const youngpeople= JSON.parse(oldpeople).products
+
+  const people=JSON.parse(youngpeople).products.data
+
+
+    
+    
       const handleUser=(id)=>{
-        setData(data.filter((item)=>item.id!==id))
+        methodMan(dispatch,id)
       }
     const columns = [
-        { field: 'id', headerName: 'ID', width: 90 },
+        { field: '_id', headerName: 'ID', width: 90 },
         {
           field: 'productName',
           headerName: 'item',
@@ -35,8 +53,8 @@ export default function ProductList() {
           renderCell:(params)=>{
               return(
                   <div className="cellimage">
-                    <img src={params.row.img}/>
-                    {params.row.productName}
+                    <img src={params.row.img[0]?params.row.img[0]:params.row.img}/>
+                    {params.row.title}
                   </div>
               )
           }
@@ -70,10 +88,10 @@ export default function ProductList() {
                 return(
                     
                     <div className="holeup">
-                       <Link to={"/product/" + params.row.id}>
+                       <Link to={"/product/" + params.row._id}>
                         <button> Edit</button>
                         </Link>
-                        <DeleteOutline className="thisbitch" onClick={()=>handleUser(params.row.id)}/>
+                        <DeleteOutline className="thisbitch" onClick={()=> handleUser(params.row._id) }/>
                     </div>
                 )
             }
@@ -90,10 +108,12 @@ export default function ProductList() {
 
     <div className="gridd">
       <DataGrid
-        rows={data}
+        rows={people}
         columns={columns}
+        getRowId={(row)=>row._id}
         pageSize={5}
         rowsPerPageOptions={[5]}
+        
         checkboxSelection
         disableSelectionOnClick
       />

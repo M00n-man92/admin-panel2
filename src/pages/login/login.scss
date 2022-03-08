@@ -1,0 +1,49 @@
+.login{
+   
+    .agressivegansta{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin-top: 200px;
+        .lol{
+            display: flex;
+            align-items: center;
+            margin-top: 10px;
+            label{
+                font-size: 14px;
+                color: #555;
+    
+            }
+            input{
+                margin-left: 10px;
+                border: none;
+                height: 34px;
+                border-bottom: 1px solid #555;
+            }
+        }
+        .but{
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            margin-top: 20px;
+            .kolllo{
+                background-color: teal;
+                height: 34px;
+                width: 70px;
+                border: none;
+                color: white;
+                cursor: pointer;
+                &:disabled{
+                    cursor: not-allowed;
+                    background-color: #555;
+                }
+            }
+            span{
+                color: red;
+                font-size: 15px;
+            }
+        }
+    }
+    
+}

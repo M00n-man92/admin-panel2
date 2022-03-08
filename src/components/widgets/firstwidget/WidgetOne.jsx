@@ -1,90 +1,51 @@
 import { SmartDisplay, Visibility } from '@mui/icons-material'
+import { useEffect } from 'react'
+import { useState } from 'react'
+import { userRequest } from '../../../requestMethods'
 import './widgetone.scss'
 
 export default function WidgetOne() {
+    const [user, setUser] = useState([])
+    useEffect(() => {
+        const trail = async () => {
+            try {
+               const res = await userRequest.get("user/find")
+                setUser(res.data.data)
+              
+            }
+            catch (e) {
+                console.log("error appeaers" ,e)
+            }
+
+
+        }
+        trail()
+    }, [])
     return (
         <div className="one">
             <div className="widgettitle">
                 <span>New Members Joined</span>
             </div>
-            <div className="containment">
+            {user.map((item) => (<div className="containment" key={item._id}>
 
                 <div className="widgetusercontainer">
                     <div className="imagecontainer">
-                        <img src="assets/Ariana Grande Pays Tribute to Mac Miller_ 'I'm So Sorry I Couldn't Fix or Take Your Pain Away'.jpg" alt="" />
+                        <img src={item.profilepic} alt="" />
                     </div>
                     <div className="userinfo"><div className="username">
-                        <span>Mac Miller</span>
+                        <span>{item.name}</span>
                     </div>
                         <div className="job">
                             <span>
-                                Software Engineer
+                                {item.email}
                             </span>
                         </div></div>
 
                     <div className="divfobutton"><button> Display <Visibility className="holup" /></button></div>
 
                 </div>
-            </div>
-            <div className="containment">
+            </div>))}
 
-                <div className="widgetusercontainer">
-                    <div className="imagecontainer">
-                        <img src="assets/Ariana Grande Pays Tribute to Mac Miller_ 'I'm So Sorry I Couldn't Fix or Take Your Pain Away'.jpg" alt="" />
-                    </div>
-                    <div className="userinfo"><div className="username">
-                        <span>Mac Miller</span>
-                    </div>
-                        <div className="job">
-                            <span>
-                                Software Engineer
-                            </span>
-                        </div></div>
-
-                    <div className="divfobutton"><button> Display <Visibility className="holup" /></button></div>
-
-                </div>
-            </div>
-            <div className="containment">
-
-                <div className="widgetusercontainer">
-                    <div className="imagecontainer">
-                        <img src="assets/Ariana Grande Pays Tribute to Mac Miller_ 'I'm So Sorry I Couldn't Fix or Take Your Pain Away'.jpg" alt="" />
-                    </div>
-                    <div className="userinfo"><div className="username">
-                        <span>Mac Miller</span>
-                    </div>
-                        <div className="job">
-                            <span>
-                                Software Engineer
-                            </span>
-                        </div></div>
-
-                    <div className="divfobutton"><button> Display <Visibility className="holup" /></button></div>
-
-                </div>
-            </div>
-            <div className="containment">
-
-                <div className="widgetusercontainer">
-                    <div className="imagecontainer">
-                        <img src="assets/Ariana Grande Pays Tribute to Mac Miller_ 'I'm So Sorry I Couldn't Fix or Take Your Pain Away'.jpg" alt="" />
-                    </div>
-                    <div className="userinfo">
-                        <div className="username">
-                            <span>Mac Miller</span>
-                        </div>
-                        <div className="job">
-                            <span>
-                                Software Engineer
-                            </span>
-                        </div>
-                    </div>
-
-                    <div className="divfobutton"><button> Display <Visibility className="holup" /></button></div>
-
-                </div>
-            </div>
 
         </div>
     )

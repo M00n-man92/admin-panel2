@@ -1,7 +1,25 @@
 import { ArrowUpwardSharp,ArrowDownwardSharp} from '@mui/icons-material'
+import { useEffect, useState } from 'react'
+import { userRequest } from '../../requestMethods'
 import './info.scss'
 
 export default function Info() {
+    const [incomeStat,setINcomeStat]=useState([])
+    const [percent,setPercent]=useState(0)
+    useEffect(()=>{
+        const pleadinformisery=async()=>{
+            try{
+                const res=await userRequest.get("order/income")
+               setINcomeStat(res.data)
+               setPercent((res.data[1].total*100)/res.data[0].total - 100)
+            }
+            catch(e){
+                console.log(e)
+            }
+        }
+        pleadinformisery()
+    },[])
+ 
     return (
         <div className="info">
             <div className="infowrapper">
@@ -12,10 +30,11 @@ export default function Info() {
                 </div>
                 <div className="infocontainer">
                     <span className="infomoneyone">
-                        $ 123
+                    $ {incomeStat[1]?.total}
                     </span>
                     <span className="infomoneytwo">
-                        +67 <ArrowUpwardSharp className="upwardz"/>
+                       % {Math.floor(percent)} 
+                       {percent >= 0 ? <ArrowUpwardSharp className="upwardz"/>: <ArrowDownwardSharp className="downwardz"/>}
                     </span>
                 </div>
                 <div className="infowentdown">
