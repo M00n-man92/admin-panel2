@@ -38,8 +38,8 @@ console.log(token)
 
 
 
-export const publicRequest = axios.create({ baseURL: otehrUrl })
-export const userRequest = axios.create({ baseURL: otehrUrl, headers: { token: `Bearer ${token}` } })
+export const publicRequest = axios.create({ baseURL: baseUrl })
+export const userRequest = axios.create({ baseURL: baseUrl, headers: { token: `Bearer ${token}` } })
 
 
 
