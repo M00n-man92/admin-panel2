@@ -15,6 +15,7 @@ export const login=async(dispatch,user)=>{
     }
     catch(e){
         dispatch(loginError())
+        return e.response.data
     }
 }
 export const protectYaNeck=async(dispatch)=>{
@@ -30,6 +31,7 @@ export const protectYaNeck=async(dispatch)=>{
     }
     catch(e){
         dispatch(getProductError())
+        return e.response.data
     }
 }
 export const methodMan=async(dispatch,id)=>{
@@ -47,6 +49,7 @@ export const methodMan=async(dispatch,id)=>{
     }
     catch(e){
         dispatch(deleteProductError())
+        return e.response.data
     }
 }
 export const addProduct=async(product,dispatch)=>{
@@ -64,6 +67,7 @@ export const addProduct=async(product,dispatch)=>{
     }
     catch(e){
         dispatch(addProductError())
+        return e.response.data
     }
 }
 export const updateProduct=async(dispatch,payload,id)=>{
@@ -71,7 +75,7 @@ export const updateProduct=async(dispatch,payload,id)=>{
     try{
        /*  const reply=await userRequest.update(`/product/update/${id}`)
        const res=reply.data */
-       const reply=await userRequest.put(`/product/update/:${id}`,payload)
+       const reply=await userRequest.put(`/product/update/${id}`,payload)
       
        const res=reply.data
 
@@ -85,6 +89,7 @@ export const updateProduct=async(dispatch,payload,id)=>{
     catch(e){
         console.log("here is the "+e)
         dispatch(updateProductError())
+        return e.response.data
     }
 }
 export const userLogout=(dispatch)=>{

@@ -12,8 +12,9 @@ export default function NewProduct() {
     const [cat, setCat] = useState({})
     const [done, setDone] = useState(false)
     const [togetther, setTogether] = useState({})
-    const [love,Setlove]=useState([null])
+    const [love, Setlove] = useState([null])
     const [url, setUrl] = useState("")
+    const [petty,setPetty]=useState([{}])
     const dispatch = useDispatch()
     var sub_array = []
     var super_array = []
@@ -30,18 +31,19 @@ export default function NewProduct() {
     }
     const aemani_suits = async (product) => {
         const reply = await userRequest.post("/product/newproduct", product)
+        // console.log(product)
         const res = reply.data
         if (res.success) {
             setDone(true)
         }
     }
-    console.log("datacome  "+ file)
+    console.log("datacome  " + file)
 
-    const handleClick =async(e) => {
+    const handleClick = async (e) => {
         // e.prev""entDefault()
-        var streetsofafruce={}
-        
-        streetsofafruce=e.target.files[0]
+        var streetsofafruce = {}
+
+        streetsofafruce = e.target.files[0]
         setFile(streetsofafruce)
         console.log(streetsofafruce)
         // if(file==null){
@@ -49,7 +51,7 @@ export default function NewProduct() {
         //     setFile(streetsofafruce)
         //     console.log(file)
         // }
-       
+
         // console.log(file)
         // for(var c=0;c<file.length;c++){
         //     super_array.push(new Date().getTime()+file[c].name)
@@ -57,7 +59,7 @@ export default function NewProduct() {
         // }
         // setFileName(super_array)
         // console.log(file)
-         
+
         const fileName = new Date().getTime() + streetsofafruce.name
         const storage = getStorage(app)
         const storageReff = ref(storage, fileName)
@@ -94,11 +96,11 @@ export default function NewProduct() {
                     // const { discription, price, title, color } = input
                     sub_array.push(downloadURL)
                     console.log(downloadURL)
-                    var lio=downloadURL
+                    var lio = downloadURL
                     console.log(lio)
                     // if (file){ setFile("")}
-                    setFileName(oldone=>[...oldone,{lio}])
-                    
+                    setFileName(oldone => [...oldone, { lio }])
+
                     // console.log(sub_array)
                     // setUrl(downloadURL)
                     // const produce={discription,price,title,catagory,color,size,img:downloadURL};
@@ -108,21 +110,35 @@ export default function NewProduct() {
 
                 });
                 // const ipraisethelord=sub_array[0]
-              
+
                 super_array.push(sub_array)
-                
+
             }
-        ); 
-        
+        );
+
     }
     // console.log(fileName)
     console.log(super_array)
     console.log(fileName)
+    const handleShoot=(e)=>{
+        const missincalls=e.target.value.split(",")
+        var iani=[{}]
+        missincalls.map(item=>iani.push({id:item.split(" ")[0],coloring:item.split(" ")[1],img:item.split(" ")[2]?item.split(" ")[2]:""}))
+        console.log(iani)
+        // console.log(iani.findIndex(0))
+        iani.shift()
+        // iani.map(item=>)
+        // console.log(missincalls)
+        setPetty(iani)
+        
+        console.log(petty)
+        
+}
     const paperback = () => {
-        const { catagory, size,img, color  } = cat
+        const { catagory, size, img, color } = cat
 
-        const { discription, price, title} = input
-        const produce={discription,price,title,catagory,color,size,img};
+        const { discription, price, title,link } = input
+        const produce = { discription, price, title, catagory, color, size, img,associate_color:petty };
         // console.log(produce)
         aemani_suits(produce)
 
@@ -133,10 +149,10 @@ export default function NewProduct() {
         // Setlove((prev)=>{return{...prev,[r.target.name]:r.target.files[0]}})
         // Setlove(r.target.files[0])
     }
-// console.log(sub_array)
-// console.log(sub_array)
-// console.log(sub_array)
-// console.log(sub_array)
+    // console.log(sub_array)
+    // console.log(sub_array)
+    // console.log(sub_array)
+    // console.log(sub_array)
 
     return (
         <div className="newproduct">
@@ -155,14 +171,14 @@ export default function NewProduct() {
                             <input type="file" multiple="multiple" onChange={e => handleClick(e) /*paperback(e)setFile(e.target.files[0]) */} />
                         </div>
                     </div>
-                    
+
                 </div>
                 <div className="iplayedmyfair">
-                        {fileName?fileName.map((item)=>(<span>
-                            {item.lio}
-                        </span>)):<span></span>}
-                        {love?<span>{love}</span>:<span></span>}
-                    </div>
+                    {fileName ? fileName.map((item) => (<span>
+                        {item.lio}
+                    </span>)) : <span></span>}
+                    {love ? <span>{love}</span> : <span></span>}
+                </div>
             </div>
 
             <div className="projectotrrr">
@@ -180,7 +196,7 @@ export default function NewProduct() {
                         <span>Image</span>
                     </div>
                     <div className="ollio">
-                        <input name="img" type="text" className="shitpluscrack" onChange={handleCat} />
+                        <textarea name="img" type="text" className="shitpluscrack" onChange={handleCat} column={5}/>
                     </div>
                 </div>
                 <div className="productitemplus">
@@ -212,7 +228,7 @@ export default function NewProduct() {
                         <span>Size</span>
                     </div>
                     <div className="ollio">
-                        <input name="size" type="text" placeholder="XL,L,M,S..." className="shitpluscrack" onChange={handleCat} />
+                        <input name="size" type="text" placeholder="XL(12),L(10),M(8),S(6)..." className="shitpluscrack" onChange={handleCat} />
                     </div>
                 </div>
                 <div className="productitemplus">
@@ -220,7 +236,7 @@ export default function NewProduct() {
                         <span>Color</span>
                     </div>
                     <div className="ollio">
-                        <input name="color" type="text" placeholder="red,blue,pink..." className="shitpluscrack" onChange={handleCat} />
+                        <input name="color" type="text" placeholder="red,blue,pink,multicolor..." className="shitpluscrack" onChange={handleCat} />
                     </div>
                 </div>
 
@@ -237,6 +253,23 @@ export default function NewProduct() {
                     </div>
 
                 </div>
+                <div className="productitemplus">
+                    <div className="laketitle">
+                        <label>Assoiated Products</label>
+
+                    </div>
+                    <div className="ollio">
+                        <textarea type="text" name="associate_color" placeholder="6229e3333979751c24938054'id' red(muticolor)'color' https://firebasestorage.googleapis.com/v0/b/bang-clothing.appspot.com'imagelink if it is muti colored', do it all over separated by comma" className="lhe" onChange={handleShoot}/>
+                    </div></div>
+                    <div className="productitemplus">
+                    <div className="laketitle">
+                        <span>Link</span>
+                    </div>
+                    <div className="ollio">
+                        <input name="link" type="text" placeholder="" className="shitpluscrack" onChange={handleInput} />
+                    </div>
+                </div>
+
                 <div className="jidbutton">
                     <button onClick={paperback}>Create</button>
                 </div>

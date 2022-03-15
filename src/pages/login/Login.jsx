@@ -7,6 +7,9 @@ import './login.scss'
 export default function Login() {
     const [hotline, setHotline] = useState(false)
     var youth = false
+    const [success, setSuccess] = useState()
+    const [status, setStatus] = useState()
+    const [message, setMessage] = useState('')
     const [issue, setIssue] = useState(false)
     const oldpeople = localStorage.getItem("persist:root")
     const { isFetching, error, currentUser } = useSelector(state => state.user)
@@ -28,21 +31,31 @@ export default function Login() {
     }
 
 
-    // setIssue(sompeople)
-
-
-
-
-
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
 
     const dispch = useDispatch();
 
-    const handler = (e) => {
+    const handler = async (e) => {
         e.preventDefault()
         const user = { email, password }
-        login(dispch, user)
+        try {
+            const reply = await login(dispch, user)
+            if (reply) {
+                setSuccess(reply.success)
+                setMessage(reply.msg)
+                setStatus(reply.status)
+            }
+            else {
+
+                setSuccess(false)
+                setMessage("something went wrong with our server")
+
+            }
+
+        } catch (e) {
+            console.log(e)
+        }
 
 
 
@@ -56,7 +69,9 @@ export default function Login() {
             <Router>
                 <Switch>
                     {youth ? <Redirect to='/' /> : <div className="login">
-
+                        <div className="badmanthing">
+                            {success?  <span className="right">{message}</span>: <span className='wrong'>{message}</span>} 
+                        </div>
                         <form action="" className="agressivegansta">
                             <div className="lol">
                                 <label htmlFor="">Email</label>

@@ -1,11 +1,15 @@
 import axios from 'axios'
 
-const baseUrl = "http://localhost:5000/api/"
-const otehrUrl="https://damianmarley.herokuapp.com/api/"
+const path = require('path')
+const dotenv=require('dotenv').config()
+
+const baseUrl = process.env.REACT_APP_API_URL
+const otehrUrl=process.env.REACT_APP_LOCAL_URL
+
 const holdonasec = () => {
     const oldpeople = localStorage.getItem("persist:root")
-
-
+    // console.log(baseUrl)
+// console.log(oldpeople)
     if (!JSON.parse(oldpeople)) {
         return null
     }
@@ -34,7 +38,7 @@ const people= JSON.parse(oldpeople).currentUser
     const token =  yolo.token
     const admin = yolo.isAdmin */
 
-console.log(token)
+// console.log(token)
 
 
 
