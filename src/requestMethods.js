@@ -4,7 +4,7 @@ const path = require('path')
 const dotenv=require('dotenv').config()
 
 const baseUrl = process.env.REACT_APP_API_URL
-const otehrUrl=process.env.REACT_APP_LOCAL_URL
+const otherUrl=process.env.REACT_APP_LOCAL_URL
 
 const holdonasec = () => {
     const oldpeople = localStorage.getItem("persist:root")
