@@ -42,6 +42,7 @@ export default function Login() {
         try {
             const reply = await login(dispch, user)
             if (reply) {
+                // console.log(reply)
                 setSuccess(reply.success)
                 setMessage(reply.msg)
                 setStatus(reply.status)
