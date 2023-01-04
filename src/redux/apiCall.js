@@ -4,18 +4,24 @@ import {getProductError,getProductStart,getProductSuccess,deleteProductError,del
 
 export const login=async(dispatch,user)=>{
     dispatch(loginStart());
+    // console.log("bruppp")
     try{
         const reply=await userRequest.post("/user/login",user)
        const res=reply.data
+       console.log(res)
        if(reply.data){dispatch(loginSuccess(reply.data))}
-       else {}
+       else {
+           console.log("fucl")
+       }
         
        
         
     }
     catch(e){
+        // console.log("you reememver ewhen we first met")
         dispatch(loginError())
-        return e.response.data
+    //    console.log(e.responce.msg)
+        return e.responce.data
     }
 }
 export const protectYaNeck=async(dispatch)=>{
