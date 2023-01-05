@@ -1,8 +1,8 @@
 /*  */
 import { initializeApp } from "firebase/app";
-const dotenv = require('dotenv')
+// const dotenv = require('dotenv')
 
-dotenv.config()
+// dotenv.config()
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 

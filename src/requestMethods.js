@@ -1,10 +1,11 @@
 import axios from 'axios'
 
-const path = require('path')
-const dotenv=require('dotenv').config()
+// const path = require('path')
+// const dotenv=require('dotenv').config()
 
-const baseUrl = process.env.REACT_APP_API_URL
-const otherUrl=process.env.REACT_APP_LOCAL_URL
+// const baseUrl = process.env.REACT_APP_API_URL
+const baseUrl = "https://api-production-b6bc.up.railway.app/api/"
+// const otherUrl=process.env.REACT_APP_LOCAL_URL
 
 const holdonasec = () => {
     const oldpeople = localStorage.getItem("persist:root")
