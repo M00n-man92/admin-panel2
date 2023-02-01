@@ -5,10 +5,6 @@ import axios from 'axios'
 
 // const baseUrl = process.env.REACT_APP_API_URL
 const baseUrl = "https://api-production-b6bc.up.railway.app/api/"
-<<<<<<< HEAD
-// const baseUrl = "http://localhost:5000/api/"
-=======
->>>>>>> c7c1097e85284da6830dbaacce42374f6acbb10e
 // const otherUrl=process.env.REACT_APP_LOCAL_URL
 
 const holdonasec = () => {
