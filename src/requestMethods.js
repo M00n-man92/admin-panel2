@@ -4,7 +4,7 @@ import axios from 'axios'
 // const dotenv=require('dotenv').config()
 
 // const baseUrl = process.env.REACT_APP_API_URL
-const baseUrl = "https://api-production-b6bc.up.railway.app/api/"
+const baseUrl = "https://idkitsjustaservice.onrender.com/api/"
 // const otherUrl=process.env.REACT_APP_LOCAL_URL
 
 const holdonasec = () => {
